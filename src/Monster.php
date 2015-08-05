@@ -47,7 +47,7 @@ class Monster {
     }
 
     function saveMonster() {
-        array($_SESSION['list_of_monsters'], $this);
+        array_push($_SESSION['list_of_monsters'], $this);
     }
 
     static function getAll() {
