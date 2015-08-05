@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Tamagotchi</title>
+</head>
+<body>
+    <h1>Your stable of monsters:</h1>
+
+    {% if monsters is not empty %}
+
+        <ul>
+            {% for monster in monsters %}
+            <ul><strong>{{ monster.getName }}</strong>
+                <br>
+                <li>Hunger: {{ monster.getFood }}</li>
+                <li>Attention: {{ monster.getAttention }}</li>
+                <li>Energy: {{ monster.getEnergy }}</li>
+            </ul>
+        </ul>
+        <br>
+        {% endfor %}
+    {% endif %}
+
+    <br><br>
+    <h2>Do you want to add a new monster?</h2>
+    <form action='/add_monster' method='post'>
+        <label for='name'>Name your monster:</label>
+        <input id='name' name='name' type='text'>
+        <br>
+        <button type='submit'>SUBMIT</button>
+    </form>
+
+    <br><br>
+    <form action='/release_monsters' method='post'>
+        <button type='submit'>RELEASE ALL MONSTERS</button>
+    </form>
+
+</body>
+</html>
